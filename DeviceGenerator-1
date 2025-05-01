@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Device Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #1a2b3c;
+            color: white;
+        }
+        h1 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: white;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #87ceeb;
+            color: #1a2b3c;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #add8e6;
+        }
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            min-height: 100px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .device-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #87ceeb;
+        }
+        .device-description {
+            line-height: 1.6;
+            text-align: left;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Future Medical Device Generator</h1>
+    <h2>MEDevice Boston. Engineered to Advance.</h2>
+    
+    <button onclick="generateDevice()">Generate Device</button>
+    <div id="result"></div>
+
+    <script>
+        const prefixes = ['Neuro', 'Bio', 'Cardio', 'Ortho', 'Nano', 'Quantum', 'Smart', 'AI', 'Cyber', 'Micro'];
+        const deviceTypes = ['Scanner', 'Monitor', 'Implant', 'Sensor', 'Probe', 'Assistant', 'Analyzer', 'Device', 'System', 'Platform'];
+        const features = [
+            'with real-time monitoring capabilities',
+            'featuring AI-powered diagnostics',
+            'using quantum biosensing technology',
+            'with wireless patient tracking',
+            'incorporating nanoscale precision',
+            'with cloud-based data analysis',
+            'using advanced machine learning algorithms',
+            'with 3D bioprinting capabilities',
+            'featuring holographic interface',
+            'with predictive maintenance system'
+        ];
+
+        const descriptions = {
+            'Scanner': [
+                "Revolutionary imaging technology that provides unprecedented clarity and detail in real-time. Perfect for both diagnostic and surgical applications, allowing medical professionals to make more informed decisions.",
+                "Designed for early detection and prevention of various medical conditions. Offers non-invasive scanning with minimal patient discomfort."
+            ],
+            'Monitor': [
+                "Advanced monitoring solution that provides continuous, real-time patient data analysis. Ideal for both intensive care units and remote patient monitoring.",
+                "Comprehensive vital signs monitoring system that alerts healthcare providers to subtle changes in patient condition before critical situations develop."
+            ],
+            'Implant': [
+                "Cutting-edge implantable device that seamlessly integrates with the patient's body. Provides targeted therapy while minimizing side effects.",
+                "Smart implant that adapts to patient needs and can be adjusted remotely by healthcare providers for optimal treatment outcomes."
+            ],
+            'Sensor': [
+                "High-precision sensor system that continuously tracks vital health markers. Perfect for chronic condition management and preventive care.",
+                "Miniaturized sensor technology that provides accurate, real-time health data while being completely unobtrusive to the patient."
+            ],
+            'Probe': [
+                "Advanced diagnostic tool that combines multiple sensing technologies for comprehensive analysis. Enables precise targeting of treatment areas.",
+                "Minimally invasive probe that provides instant feedback during procedures, improving accuracy and reducing procedure time."
+            ],
+            'Assistant': [
+                "AI-powered medical assistant that helps healthcare providers make data-driven decisions. Reduces administrative burden while improving patient care.",
+                "Smart medical assistant that streamlines workflow and provides real-time clinical decision support."
+            ],
+            'Analyzer': [
+                "Sophisticated analysis platform that processes complex medical data in seconds. Helps identify patterns and anomalies that might be missed by traditional methods.",
+                "Comprehensive analysis system that combines multiple data sources to provide actionable medical insights."
+            ],
+            'Device': [
+                "Innovative medical device that represents the next generation of patient care. Combines multiple technologies for improved treatment outcomes.",
+                "Versatile medical solution that adapts to various clinical settings and patient needs."
+            ],
+            'System': [
+                "Integrated healthcare system that seamlessly connects various aspects of patient care. Improves coordination and treatment efficiency.",
+                "Comprehensive medical system that provides end-to-end patient care solutions with advanced monitoring and treatment capabilities."
+            ],
+            'Platform': [
+                "Versatile medical platform that can be customized for various healthcare applications. Provides scalable solutions for different medical facilities.",
+                "Advanced healthcare platform that integrates multiple technologies for comprehensive patient care management."
+            ]
+        };
+
+        function generateDevice() {
+            const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+            const type = deviceTypes[Math.floor(Math.random() * deviceTypes.length)];
+            const feature = features[Math.floor(Math.random() * features.length)];
+            const description = descriptions[type][Math.floor(Math.random() * descriptions[type].length)];
+            
+            const device = `
+                <div class="device-name">${prefix}${type} ${feature}</div>
+                <div class="device-description">${description}</div>
+            `;
+            document.getElementById('result').innerHTML = device;
+        }
+    </script>
+</body>
+</html>
